@@ -10,13 +10,20 @@
 
   <title>Dashboard User Guide</title>
 
-  <link rel="stylesheet" href="./style.css" />
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  />
 </head>
 
 <body>
+  <!-- HEADER -->
   <header class="topbar">
     <div class="brand">
-      <div class="logo" id="projectLogo">
+      <div
+        class="logo"
+        id="projectLogo"
+      >
         BI
       </div>
 
@@ -40,7 +47,10 @@
     </button>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="page-layout">
+
+    <!-- USER GUIDE PANEL -->
     <aside
       id="guidePanel"
       class="guide-panel"
@@ -55,106 +65,325 @@
         </h2>
 
         <p>
-          Thực hiện lần lượt các bước dưới đây để xem và phân tích báo cáo.
+          Nhấn vào từng mục bên dưới để xem hướng dẫn chi tiết.
         </p>
       </div>
 
+      <!-- STEP 1 -->
       <section class="guide-card">
-        <div class="step-number">
-          1
-        </div>
+        <button
+          class="guide-card-header"
+          type="button"
+          aria-expanded="false"
+        >
+          <span class="step-number">
+            1
+          </span>
 
-        <div>
-          <h3>
-            Chọn trang báo cáo
-          </h3>
+          <span class="guide-card-summary">
+            <strong>
+              Chọn trang báo cáo
+            </strong>
 
+            <span>
+              Sử dụng menu hoặc các nút điều hướng để chuyển đến nội dung cần theo dõi.
+            </span>
+          </span>
+
+          <span class="guide-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="guide-card-detail">
           <p>
-            Sử dụng menu hoặc các nút điều hướng trong báo cáo để chuyển đến nội dung cần theo dõi.
+            Sử dụng menu Agenda hoặc các nút điều hướng trong dashboard để chuyển giữa các trang báo cáo.
           </p>
+
+          <ol>
+            <li>
+              Chọn tên báo cáo hoặc biểu tượng tương ứng trên menu.
+            </li>
+
+            <li>
+              Sử dụng nút Home để quay về trang tổng quan.
+            </li>
+
+            <li>
+              Sử dụng nút Back để quay lại trang trước nếu dashboard có hỗ trợ.
+            </li>
+          </ol>
+
+          <div class="guide-tip">
+            Các trang bị làm mờ hoặc không thể nhấn có thể đang trong quá trình phát triển.
+          </div>
         </div>
       </section>
 
+      <!-- STEP 2 -->
       <section class="guide-card">
-        <div class="step-number">
-          2
-        </div>
+        <button
+          class="guide-card-header"
+          type="button"
+          aria-expanded="false"
+        >
+          <span class="step-number">
+            2
+          </span>
 
-        <div>
-          <h3>
-            Áp dụng bộ lọc
-          </h3>
+          <span class="guide-card-summary">
+            <strong>
+              Áp dụng bộ lọc
+            </strong>
 
+            <span>
+              Chọn thời gian, khu vực, nhân sự hoặc các điều kiện phân tích phù hợp.
+            </span>
+          </span>
+
+          <span class="guide-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="guide-card-detail">
           <p>
-            Chọn thời gian, khu vực, nhân sự hoặc các điều kiện phân tích phù hợp.
+            Nên chọn bộ lọc theo thứ tự từ tổng quan đến chi tiết để dễ kiểm soát dữ liệu.
           </p>
+
+          <ol>
+            <li>
+              Chọn thời gian cần theo dõi.
+            </li>
+
+            <li>
+              Chọn khu vực, đơn vị hoặc kênh bán hàng.
+            </li>
+
+            <li>
+              Chọn nhân sự, khách hàng hoặc cửa hàng nếu cần phân tích sâu.
+            </li>
+
+            <li>
+              Kiểm tra các lựa chọn đang được áp dụng trước khi đối chiếu số liệu.
+            </li>
+          </ol>
+
+          <div class="guide-tip">
+            Khi chọn một giá trị, các KPI, biểu đồ và bảng trên trang sẽ tự động cập nhật.
+          </div>
         </div>
       </section>
 
+      <!-- STEP 3 -->
       <section class="guide-card">
-        <div class="step-number">
-          3
-        </div>
+        <button
+          class="guide-card-header"
+          type="button"
+          aria-expanded="false"
+        >
+          <span class="step-number">
+            3
+          </span>
 
-        <div>
-          <h3>
-            Tương tác biểu đồ
-          </h3>
+          <span class="guide-card-summary">
+            <strong>
+              Tương tác biểu đồ
+            </strong>
 
+            <span>
+              Nhấn vào cột, trạng thái hoặc phần của biểu đồ để lọc chéo các visual.
+            </span>
+          </span>
+
+          <span class="guide-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="guide-card-detail">
           <p>
-            Nhấn vào cột, trạng thái hoặc phần của biểu đồ để lọc chéo các visual trên cùng trang.
+            Các biểu đồ trên cùng một trang có thể tương tác và lọc chéo lẫn nhau.
           </p>
+
+          <ol>
+            <li>
+              Nhấn vào một cột, đường, trạng thái hoặc phần của biểu đồ tròn.
+            </li>
+
+            <li>
+              Theo dõi sự thay đổi của các KPI và visual còn lại.
+            </li>
+
+            <li>
+              Nhấn lại vào phần đang chọn để bỏ lựa chọn.
+            </li>
+          </ol>
+
+          <div class="guide-tip">
+            Ví dụ: Nhấn vào trạng thái “Không đạt” để xem danh sách cửa hàng và nguyên nhân tương ứng.
+          </div>
         </div>
       </section>
 
+      <!-- STEP 4 -->
       <section class="guide-card">
-        <div class="step-number">
-          4
-        </div>
+        <button
+          class="guide-card-header"
+          type="button"
+          aria-expanded="false"
+        >
+          <span class="step-number">
+            4
+          </span>
 
-        <div>
-          <h3>
-            Xem thông tin chi tiết
-          </h3>
+          <span class="guide-card-summary">
+            <strong>
+              Xem thông tin chi tiết
+            </strong>
 
+            <span>
+              Di chuyển chuột lên biểu đồ hoặc mở rộng bảng để xem dữ liệu chi tiết.
+            </span>
+          </span>
+
+          <span class="guide-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="guide-card-detail">
           <p>
-            Di chuyển chuột lên biểu đồ để xem tooltip hoặc mở rộng bảng để xem dữ liệu chi tiết.
+            Dashboard cung cấp nhiều cách để xem thêm thông tin từ visual.
           </p>
+
+          <ol>
+            <li>
+              Di chuyển chuột lên KPI hoặc biểu đồ để xem tooltip.
+            </li>
+
+            <li>
+              Nhấn dấu cộng trong Matrix để mở cấp dữ liệu chi tiết.
+            </li>
+
+            <li>
+              Nhấn tiêu đề cột để sắp xếp dữ liệu tăng hoặc giảm.
+            </li>
+
+            <li>
+              Sử dụng Focus Mode để phóng to visual nếu có.
+            </li>
+          </ol>
+
+          <div class="guide-tip">
+            Một số visual chỉ hiển thị thêm thông tin khi di chuyển chuột lên đúng điểm dữ liệu.
+          </div>
         </div>
       </section>
 
+      <!-- STEP 5 -->
       <section class="guide-card">
-        <div class="step-number">
-          5
-        </div>
+        <button
+          class="guide-card-header"
+          type="button"
+          aria-expanded="false"
+        >
+          <span class="step-number">
+            5
+          </span>
 
-        <div>
-          <h3>
-            Xóa lựa chọn
-          </h3>
+          <span class="guide-card-summary">
+            <strong>
+              Xóa lựa chọn
+            </strong>
 
+            <span>
+              Nhấn lại vào visual đã chọn hoặc dùng biểu tượng xóa bộ lọc.
+            </span>
+          </span>
+
+          <span class="guide-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="guide-card-detail">
           <p>
-            Nhấn lại vào visual đã chọn hoặc dùng biểu tượng xóa bộ lọc để bỏ lựa chọn hiện tại.
+            Có thể xóa từng lựa chọn mà không cần đặt lại toàn bộ dashboard.
           </p>
+
+          <ol>
+            <li>
+              Nhấn lại vào phần biểu đồ đang được chọn.
+            </li>
+
+            <li>
+              Nhấn biểu tượng Clear Filter tại góc bộ lọc.
+            </li>
+
+            <li>
+              Chọn lại giá trị All nếu bộ lọc có tùy chọn này.
+            </li>
+          </ol>
+
+          <div class="guide-tip">
+            Nếu dữ liệu hiển thị không đúng kỳ vọng, hãy kiểm tra các bộ lọc đang còn được áp dụng.
+          </div>
         </div>
       </section>
 
+      <!-- STEP 6 -->
       <section class="guide-card">
-        <div class="step-number">
-          6
-        </div>
+        <button
+          class="guide-card-header"
+          type="button"
+          aria-expanded="false"
+        >
+          <span class="step-number">
+            6
+          </span>
 
-        <div>
-          <h3>
-            Đặt lại báo cáo
-          </h3>
+          <span class="guide-card-summary">
+            <strong>
+              Đặt lại báo cáo
+            </strong>
 
+            <span>
+              Sử dụng nút Reset để đưa dashboard về trạng thái mặc định.
+            </span>
+          </span>
+
+          <span class="guide-card-arrow">
+            +
+          </span>
+        </button>
+
+        <div class="guide-card-detail">
           <p>
-            Sử dụng nút Reset trong dashboard để đưa báo cáo về trạng thái mặc định.
+            Nút Reset giúp xóa các lựa chọn và đưa báo cáo về trạng thái ban đầu.
           </p>
+
+          <ol>
+            <li>
+              Nhấn nút Reset trong dashboard.
+            </li>
+
+            <li>
+              Chờ báo cáo cập nhật lại bộ lọc mặc định.
+            </li>
+
+            <li>
+              Bắt đầu lượt phân tích mới.
+            </li>
+          </ol>
+
+          <div class="guide-tip">
+            Nếu dashboard không có nút Reset, có thể tải lại trang để quay về trạng thái ban đầu.
+          </div>
         </div>
       </section>
 
+      <!-- PROJECT NOTES -->
       <div class="project-note">
         <strong>
           Lưu ý
@@ -163,6 +392,7 @@
         <ul id="projectNotes"></ul>
       </div>
 
+      <!-- SUPPORT -->
       <div class="support-box">
         <span>
           Hỗ trợ sử dụng
@@ -177,6 +407,7 @@
       </div>
     </aside>
 
+    <!-- POWER BI AREA -->
     <section class="dashboard-area">
       <div
         id="loadingMessage"
@@ -193,15 +424,25 @@
     </section>
   </main>
 
+  <!-- LOAD PROJECT CONFIG -->
   <script>
     const params =
       new URLSearchParams(
         window.location.search
       );
 
+    /*
+      Nếu URL không có ?project=...
+      website sẽ tự mở dự án mer-acecook-spi.
+    */
     const project =
-      params.get("project") || "default";
+      params.get("project") ||
+      "mer-acecook-spi";
 
+    /*
+      Thêm tên dự án mới vào danh sách này
+      khi tạo thêm file config.
+    */
     const allowedProjects = [
       "default",
       "mer-acecook-spi",
