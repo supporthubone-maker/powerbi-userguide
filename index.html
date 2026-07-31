@@ -2,43 +2,73 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
   <title>Dashboard User Guide</title>
+
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
   <header class="topbar">
     <div class="brand">
-      <div class="logo" id="projectLogo">BI</div>
+      <div class="logo" id="projectLogo">
+        BI
+      </div>
 
       <div>
-        <h1 id="projectName">Power BI Dashboard</h1>
+        <h1 id="projectName">
+          Power BI Dashboard
+        </h1>
+
         <p id="projectDescription">
           Hướng dẫn sử dụng và tương tác báo cáo
         </p>
       </div>
     </div>
 
-    <button id="guideButton" class="guide-button" type="button">
+    <button
+      id="guideButton"
+      class="guide-button"
+      type="button"
+    >
       Ẩn hướng dẫn
     </button>
   </header>
 
   <main class="page-layout">
-    <aside id="guidePanel" class="guide-panel">
+    <aside
+      id="guidePanel"
+      class="guide-panel"
+    >
       <div class="guide-heading">
-        <span class="guide-label">USER GUIDE</span>
-        <h2>Hướng dẫn sử dụng</h2>
+        <span class="guide-label">
+          USER GUIDE
+        </span>
+
+        <h2>
+          Hướng dẫn sử dụng
+        </h2>
+
         <p>
           Thực hiện lần lượt các bước dưới đây để xem và phân tích báo cáo.
         </p>
       </div>
 
       <section class="guide-card">
-        <div class="step-number">1</div>
+        <div class="step-number">
+          1
+        </div>
+
         <div>
-          <h3>Chọn trang báo cáo</h3>
+          <h3>
+            Chọn trang báo cáo
+          </h3>
+
           <p>
             Sử dụng menu hoặc các nút điều hướng trong báo cáo để chuyển đến nội dung cần theo dõi.
           </p>
@@ -46,9 +76,15 @@
       </section>
 
       <section class="guide-card">
-        <div class="step-number">2</div>
+        <div class="step-number">
+          2
+        </div>
+
         <div>
-          <h3>Áp dụng bộ lọc</h3>
+          <h3>
+            Áp dụng bộ lọc
+          </h3>
+
           <p>
             Chọn thời gian, khu vực, nhân sự hoặc các điều kiện phân tích phù hợp.
           </p>
@@ -56,9 +92,15 @@
       </section>
 
       <section class="guide-card">
-        <div class="step-number">3</div>
+        <div class="step-number">
+          3
+        </div>
+
         <div>
-          <h3>Tương tác biểu đồ</h3>
+          <h3>
+            Tương tác biểu đồ
+          </h3>
+
           <p>
             Nhấn vào cột, trạng thái hoặc phần của biểu đồ để lọc chéo các visual trên cùng trang.
           </p>
@@ -66,9 +108,15 @@
       </section>
 
       <section class="guide-card">
-        <div class="step-number">4</div>
+        <div class="step-number">
+          4
+        </div>
+
         <div>
-          <h3>Xem thông tin chi tiết</h3>
+          <h3>
+            Xem thông tin chi tiết
+          </h3>
+
           <p>
             Di chuyển chuột lên biểu đồ để xem tooltip hoặc mở rộng bảng để xem dữ liệu chi tiết.
           </p>
@@ -76,9 +124,15 @@
       </section>
 
       <section class="guide-card">
-        <div class="step-number">5</div>
+        <div class="step-number">
+          5
+        </div>
+
         <div>
-          <h3>Xóa lựa chọn</h3>
+          <h3>
+            Xóa lựa chọn
+          </h3>
+
           <p>
             Nhấn lại vào visual đã chọn hoặc dùng biểu tượng xóa bộ lọc để bỏ lựa chọn hiện tại.
           </p>
@@ -86,9 +140,15 @@
       </section>
 
       <section class="guide-card">
-        <div class="step-number">6</div>
+        <div class="step-number">
+          6
+        </div>
+
         <div>
-          <h3>Đặt lại báo cáo</h3>
+          <h3>
+            Đặt lại báo cáo
+          </h3>
+
           <p>
             Sử dụng nút Reset trong dashboard để đưa báo cáo về trạng thái mặc định.
           </p>
@@ -96,31 +156,98 @@
       </section>
 
       <div class="project-note">
-        <strong>Lưu ý</strong>
+        <strong>
+          Lưu ý
+        </strong>
+
         <ul id="projectNotes"></ul>
       </div>
 
       <div class="support-box">
-        <span>Hỗ trợ sử dụng</span>
-        <a id="supportEmail" href="mailto:dashboard.support@company.com">
+        <span>
+          Hỗ trợ sử dụng
+        </span>
+
+        <a
+          id="supportEmail"
+          href="mailto:dashboard.support@company.com"
+        >
           dashboard.support@company.com
         </a>
       </div>
     </aside>
 
     <section class="dashboard-area">
-      <div id="loadingMessage" class="loading-message">
+      <div
+        id="loadingMessage"
+        class="loading-message"
+      >
         Đang tải Dashboard...
       </div>
 
       <iframe
         id="powerBiFrame"
         title="Power BI Dashboard"
-        allowfullscreen="true">
-      </iframe>
+        allowfullscreen="true"
+      ></iframe>
     </section>
   </main>
 
-  <script src="./app.js"></script>
+  <script>
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    const project =
+      params.get("project") || "default";
+
+    const allowedProjects = [
+      "default",
+      "acecook",
+      "samsung"
+    ];
+
+    const selectedProject =
+      allowedProjects.includes(project)
+        ? project
+        : "default";
+
+    function loadScript(src) {
+      return new Promise(
+        (resolve, reject) => {
+          const script =
+            document.createElement("script");
+
+          script.src = src;
+          script.onload = resolve;
+          script.onerror = reject;
+
+          document.body.appendChild(script);
+        }
+      );
+    }
+
+    async function startApplication() {
+      try {
+        await loadScript(
+          `./configs/${selectedProject}.js`
+        );
+      } catch (error) {
+        console.error(
+          "Không tải được cấu hình dự án:",
+          error
+        );
+
+        await loadScript(
+          "./configs/default.js"
+        );
+      }
+
+      await loadScript("./app.js");
+    }
+
+    startApplication();
+  </script>
 </body>
 </html>
