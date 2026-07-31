@@ -1,120 +1,177 @@
-const PROJECT_CONFIG = {
-  // ===== CHỈNH THÔNG TIN DỰ ÁN TẠI ĐÂY =====
-  projectName: "Acecook Merchandiser Dashboard",
-
-  projectDescription:
-    "Theo dõi kết quả vận hành và hiệu quả thực hiện",
-
-  projectCode: "ACE",
-
-  primaryColor: "#D71920",
-
-  // Dán link Power BI dạng reportEmbed / Website or portal tại đây.
-  powerBiUrl:
-    "DÁN_LINK_POWER_BI_EMBED_VÀO_ĐÂY",
-
-  supportEmail:
-    "dashboard.support@company.com",
-
-  notes: [
-    "Dữ liệu hiển thị theo phạm vi tài khoản được phân quyền.",
-    "Kiểm tra bộ lọc trước khi đối chiếu số liệu.",
-    "Một số chỉ số sử dụng dữ liệu phát sinh gần nhất."
-  ]
-  // ==========================================
-};
+const PROJECT_CONFIG =
+  window.PROJECT_CONFIG || {};
 
 function applyProjectConfig() {
+  const config = {
+    projectName:
+      PROJECT_CONFIG.projectName ||
+      "Power BI Dashboard",
+
+    projectDescription:
+      PROJECT_CONFIG.projectDescription ||
+      "Hướng dẫn sử dụng và tương tác báo cáo",
+
+    projectCode:
+      PROJECT_CONFIG.projectCode ||
+      "BI",
+
+    primaryColor:
+      PROJECT_CONFIG.primaryColor ||
+      "#2563EB",
+
+    powerBiUrl:
+      PROJECT_CONFIG.powerBiUrl ||
+      "",
+
+    supportEmail:
+      PROJECT_CONFIG.supportEmail ||
+      "dashboard.support@company.com",
+
+    notes:
+      Array.isArray(PROJECT_CONFIG.notes)
+        ? PROJECT_CONFIG.notes
+        : []
+  };
+
   document.title =
-    `${PROJECT_CONFIG.projectName} | User Guide`;
+    `${config.projectName} | User Guide`;
 
   document.documentElement.style.setProperty(
     "--primary-color",
-    PROJECT_CONFIG.primaryColor
+    config.primaryColor
   );
 
-  document.getElementById("projectName").textContent =
-    PROJECT_CONFIG.projectName;
+  document.getElementById(
+    "projectName"
+  ).textContent =
+    config.projectName;
 
-  document.getElementById("projectDescription").textContent =
-    PROJECT_CONFIG.projectDescription;
+  document.getElementById(
+    "projectDescription"
+  ).textContent =
+    config.projectDescription;
 
-  document.getElementById("projectLogo").textContent =
-    PROJECT_CONFIG.projectCode;
+  document.getElementById(
+    "projectLogo"
+  ).textContent =
+    config.projectCode;
 
   const supportEmail =
-    document.getElementById("supportEmail");
+    document.getElementById(
+      "supportEmail"
+    );
 
   supportEmail.textContent =
-    PROJECT_CONFIG.supportEmail;
+    config.supportEmail;
 
   supportEmail.href =
-    `mailto:${PROJECT_CONFIG.supportEmail}`;
+    `mailto:${config.supportEmail}`;
 
-  renderProjectNotes();
-  loadPowerBiReport();
+  renderProjectNotes(
+    config.notes
+  );
+
+  loadPowerBiReport(
+    config.powerBiUrl
+  );
 }
 
-function renderProjectNotes() {
+function renderProjectNotes(notes) {
   const noteList =
-    document.getElementById("projectNotes");
+    document.getElementById(
+      "projectNotes"
+    );
 
   noteList.innerHTML = "";
 
-  PROJECT_CONFIG.notes.forEach((note) => {
+  if (!notes.length) {
     const listItem =
       document.createElement("li");
 
-    listItem.textContent = note;
-    noteList.appendChild(listItem);
-  });
-}
+    listItem.textContent =
+      "Kiểm tra bộ lọc trước khi đối chiếu số liệu.";
 
-function loadPowerBiReport() {
-  const frame =
-    document.getElementById("powerBiFrame");
-
-  const loadingMessage =
-    document.getElementById("loadingMessage");
-
-  if (
-    !PROJECT_CONFIG.powerBiUrl ||
-    PROJECT_CONFIG.powerBiUrl.includes(
-      "DÁN_LINK_POWER_BI"
-    )
-  ) {
-    loadingMessage.textContent =
-      "Chưa cấu hình link Power BI trong file app.js.";
+    noteList.appendChild(
+      listItem
+    );
 
     return;
   }
 
-  frame.src = PROJECT_CONFIG.powerBiUrl;
+  notes.forEach((note) => {
+    const listItem =
+      document.createElement("li");
 
-  frame.addEventListener("load", () => {
-    loadingMessage.style.display = "none";
+    listItem.textContent = note;
+
+    noteList.appendChild(
+      listItem
+    );
   });
+}
+
+function loadPowerBiReport(
+  powerBiUrl
+) {
+  const frame =
+    document.getElementById(
+      "powerBiFrame"
+    );
+
+  const loadingMessage =
+    document.getElementById(
+      "loadingMessage"
+    );
+
+  if (
+    !powerBiUrl ||
+    powerBiUrl.includes(
+      "DÁN_LINK_POWER_BI"
+    )
+  ) {
+    loadingMessage.textContent =
+      "Chưa cấu hình link Power BI cho dự án này.";
+
+    return;
+  }
+
+  frame.src = powerBiUrl;
+
+  frame.addEventListener(
+    "load",
+    () => {
+      loadingMessage.style.display =
+        "none";
+    }
+  );
 }
 
 function setupGuideToggle() {
   const pageLayout =
-    document.querySelector(".page-layout");
+    document.querySelector(
+      ".page-layout"
+    );
 
   const guideButton =
-    document.getElementById("guideButton");
+    document.getElementById(
+      "guideButton"
+    );
 
-  guideButton.addEventListener("click", () => {
-    const isHidden =
-      pageLayout.classList.toggle("guide-hidden");
+  guideButton.addEventListener(
+    "click",
+    () => {
+      const isHidden =
+        pageLayout.classList.toggle(
+          "guide-hidden"
+        );
 
-    guideButton.textContent =
-      isHidden
-        ? "Hiện hướng dẫn"
-        : "Ẩn hướng dẫn";
-  });
+      guideButton.textContent =
+        isHidden
+          ? "Hiện hướng dẫn"
+          : "Ẩn hướng dẫn";
+    }
+  );
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  applyProjectConfig();
-  setupGuideToggle();
-});
+applyProjectConfig();
+setupGuideToggle();
