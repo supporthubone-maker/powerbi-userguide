@@ -690,3 +690,24 @@ body {
       48px;
   }
 }
+
+/* ================================
+   GUIDE IMAGES
+================================ */
+
+.guide-image {
+  width: 100%;
+  height: auto;
+  max-height: 230px;
+
+  display: block;
+
+  margin: 11px 0 13px;
+
+  object-fit: contain;
+
+  background: #ffffff;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
