@@ -38,14 +38,14 @@ function getProjectConfig() {
 }
 
 /**
- * Hiển thị thông tin dự án.
+ * Áp dụng thông tin dự án lên giao diện.
  */
 function applyProjectConfig() {
   const config =
     getProjectConfig();
 
   document.title =
-    `${config.projectName} | User Guide`;
+    `${config.projectName} | Dashboard`;
 
   document.documentElement.style.setProperty(
     "--primary-color",
@@ -53,9 +53,7 @@ function applyProjectConfig() {
   );
 
   const projectName =
-    document.getElementById(
-      "projectName"
-    );
+    document.getElementById("projectName");
 
   const projectDescription =
     document.getElementById(
@@ -63,9 +61,7 @@ function applyProjectConfig() {
     );
 
   const projectLogo =
-    document.getElementById(
-      "projectLogo"
-    );
+    document.getElementById("projectLogo");
 
   if (projectName) {
     projectName.textContent =
@@ -98,9 +94,7 @@ function applyProjectConfig() {
 /**
  * Hiển thị email hỗ trợ.
  */
-function setupSupportEmail(
-  email
-) {
+function setupSupportEmail(email) {
   const supportEmail =
     document.getElementById(
       "supportEmail"
@@ -120,9 +114,7 @@ function setupSupportEmail(
 /**
  * Hiển thị ghi chú riêng của dự án.
  */
-function renderProjectNotes(
-  notes
-) {
+function renderProjectNotes(notes) {
   const noteList =
     document.getElementById(
       "projectNotes"
@@ -198,10 +190,6 @@ function loadPowerBiReport(
     }
   );
 
-  /*
-    Nếu iframe tải lâu, vẫn giữ thông báo.
-    Sau 15 giây sẽ đổi nội dung để user biết.
-  */
   window.setTimeout(() => {
     if (
       loadingMessage.style.display !==
@@ -214,48 +202,69 @@ function loadPowerBiReport(
 }
 
 /**
- * Ẩn hoặc hiện toàn bộ panel User Guide.
+ * Chuyển đổi giữa tab Dashboard và Hướng dẫn sử dụng.
  */
-function setupGuideToggle() {
-  const pageLayout =
-    document.querySelector(
-      ".page-layout"
+function setupMainTabs() {
+  const tabButtons =
+    document.querySelectorAll(
+      ".main-tab"
     );
 
-  const guideButton =
-    document.getElementById(
-      "guideButton"
+  const views =
+    document.querySelectorAll(
+      ".main-view"
     );
 
-  if (
-    !pageLayout ||
-    !guideButton
-  ) {
-    return;
-  }
+  tabButtons.forEach((button) => {
+    button.addEventListener(
+      "click",
+      () => {
+        const targetView =
+          button.dataset.view;
 
-  guideButton.addEventListener(
-    "click",
-    () => {
-      const isHidden =
-        pageLayout.classList.toggle(
-          "guide-hidden"
+        tabButtons.forEach(
+          (item) => {
+            const isActive =
+              item === button;
+
+            item.classList.toggle(
+              "active",
+              isActive
+            );
+
+            item.setAttribute(
+              "aria-selected",
+              String(isActive)
+            );
+          }
         );
 
-      guideButton.textContent =
-        isHidden
-          ? "Hiện hướng dẫn"
-          : "Ẩn hướng dẫn";
-    }
-  );
+        views.forEach((view) => {
+          const isTarget =
+            view.id ===
+            `${targetView}View`;
+
+          view.classList.toggle(
+            "active",
+            isTarget
+          );
+
+          view.setAttribute(
+            "aria-hidden",
+            String(!isTarget)
+          );
+        });
+      }
+    );
+  });
 }
 
 /**
- * Thiết lập tương tác accordion cho các card.
+ * Thiết lập accordion cho các card hướng dẫn.
  *
- * - Nhấn card để mở nội dung chi tiết.
+ * - Nhấn để mở/đóng card.
  * - Mỗi lần chỉ mở một card.
- * - Nhấn lại card đang mở để đóng.
+ * - Card đang mở sẽ chiếm toàn bộ chiều ngang.
  */
 function setupGuideCards() {
   const guideCards =
@@ -281,9 +290,6 @@ function setupGuideCards() {
             "active"
           );
 
-        /*
-          Đóng tất cả card trước.
-        */
         guideCards.forEach(
           (item) => {
             item.classList.remove(
@@ -304,10 +310,6 @@ function setupGuideCards() {
           }
         );
 
-        /*
-          Nếu card vừa nhấn chưa mở,
-          tiến hành mở card đó.
-        */
         if (!isActive) {
           card.classList.add(
             "active"
@@ -318,13 +320,10 @@ function setupGuideCards() {
             "true"
           );
 
-          /*
-            Cuộn card vào vùng dễ nhìn.
-          */
           window.setTimeout(() => {
             card.scrollIntoView({
               behavior: "smooth",
-              block: "nearest"
+              block: "start"
             });
           }, 100);
         }
@@ -338,7 +337,7 @@ function setupGuideCards() {
  */
 function initializeApplication() {
   applyProjectConfig();
-  setupGuideToggle();
+  setupMainTabs();
   setupGuideCards();
 }
 
